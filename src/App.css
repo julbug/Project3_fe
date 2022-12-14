@@ -1,7 +1,17 @@
+/*FONT*/
+.font-link{
+  font-family: 'Alegreya';
+}
 
-h1{
+h2, li, button, h3, label, h4, h1, p, a{
+  font-family: 'Alegreya';
+  color: #59493b;
+}
+
+/*ARCHDECO TITLE*/
+.title{
   text-align: inherit;
-    color: rgb(255, 255, 255);
+    color:#F0DED0;
     text-shadow: rgb(204 204 204) 1px 1px;
     font-size: 72px;
     font-weight: 100;
@@ -13,45 +23,31 @@ h1{
     padding: 0px;
 }
 
-
-/* NAVBAR STYLING */
-/* ul.borderXwidth a:before, ul.borderXwidth a:after
-{
-    position: absolute;
-    opacity: 0;
-    width: 0%;
-    height: 2px;
-    content: '';
-    background: #FFF;
-    transition: all 0.3s;
+.text-link {
+  color: #59493b;
+  text-decoration: none;
 }
 
-ul.borderXwidth a:before
-{
-    left: 0px;
-    top: 0px;
+.text-link:hover {
+  color: #59493b;
+  text-decoration: none;
 }
 
-ul.borderXwidth a:after
-{
-    right: 0px;
-    bottom: 0px;
+
+/*CONTACT BUTTON */
+.submitBtn{
+  color: #635344;
 }
 
-ul.borderXwidth a:hover:before, ul.borderXwidth a:hover:after
-{
-    opacity: 1;
-    width: 100%;
-} */
 
 /*BUTTON STYLING */
 .beforeAfterBtn {
   align-items: center;
-  background-color: #fee6e3;
-  border: 2px solid #111;
+  background-color: #F0DED0;
+  border: 2px solid #635344;
   border-radius: 8px;
   box-sizing: border-box;
-  color: #111;
+  color: #635344;
   cursor: pointer;
   display: flex;
   font-family: Inter,sans-serif;
@@ -70,7 +66,7 @@ ul.borderXwidth a:hover:before, ul.borderXwidth a:hover:after
 }
 
 .beforeAfterBtn:after {
-  background-color: #111;
+  background-color: #635344;
   border-radius: 8px;
   content: "";
   display: block;
@@ -88,11 +84,6 @@ ul.borderXwidth a:hover:before, ul.borderXwidth a:hover:after
   transform: translate(0, 0);
 }
 
-.beforeAfterBtn :active {
-  background-color: #ffdeda;
-  outline: 0;
-}
-
 .beforeAfterBtn :hover {
   outline: 0;
 }
@@ -108,13 +99,13 @@ ul.borderXwidth a:hover:before, ul.borderXwidth a:hover:after
   position: relative;
   width: 60%;
   padding-bottom: 46.5%;
-  background: black;
+  background: #635344;
   box-shadow: 0 10px 7px -5px rgba(0, 0, 0, 0.3);
 }
 
 .mat {
   position: absolute;
-  background: white;
+  background: #e8e5e3;
   top: 3.0303%; bottom: 3.0303%; left: 2.5%; right: 2.5%;
   box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5) inset;
 }
@@ -124,29 +115,29 @@ ul.borderXwidth a:hover:before, ul.borderXwidth a:hover:after
   top: 16.129%; bottom: 16.129%; left: 13.158%; right: 13.158%;
 }
 
-/* .art:after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5) inset;
-} */
-
 .art img {
   max-height: 100%;
   max-width: 80%;
 }
 
-/*HOME PROFILE */
+/*HOME PAGE */
 .profile{
-  background-color: blanchedalmond;
+  background-color: #F0DED0;
+  /* background-color: #e4d4c4; */
   display: flex;
   flex-direction: row;
   align-content: stretch;
   justify-content: space-evenly;
   align-items: center;
+
+  padding-left: 80px;
+  padding-right: 80px;
+
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  border-radius: 120px 20px 120px 20px;
+
 }
 
 .profilePic{
@@ -154,44 +145,94 @@ ul.borderXwidth a:hover:before, ul.borderXwidth a:hover:after
   padding-left: 27px;
   padding-top: 30px;
   padding-bottom: 30px;
+  border-radius: 120px 20px 120px 20px;
+
+  
+}
+
+.hours{
+  border-radius: 120px 20px 120px 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  border-radius: 120px 20px 120px 20px;
+  width: 50%;
+}
+
+.ptag {
+  font-family: 'Alegreya';
+  color: #59493b;
+  margin-left: 10px;
+  margin-left: 70px;
+  margin-right: 50px;
 }
 
 /*ORIGINAL*/
 .App {
     text-align: center;
   }
-  
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
+
+/*LOGO*/
+  .video{
+    height: 600px;
+    width: 100%;
   }
+
+/*FAQ*/
+  .faq-heading{
+    border-bottom:  #59493b;
+    padding: 20px 60px;
+}
+.faq-container{
+display: flex;
+justify-content: center;
+flex-direction: column;
+}
+.hr-line{
+  width: 60%;
+  margin: auto;
   
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  
-  .App-link {
-    color: #61dafb;
-  }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
+}
+/* Style the buttons that are used to open and close the faq-page body */
+.faq-page {
+    /* background-color: #eee; */
+    color: #59493b;
+    cursor: pointer;
+    padding: 30px 20px;
+    width: 60%;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin: auto;
+}
+.faq-body{
+    margin: auto;
+    /* text-align: center; */
+   width: 50%; 
+   padding: auto;
+   
+}
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.faq-page:hover {
+    background-color: #F0DED0;;
+}
+/* Style the faq-page panel. Note: hidden by default */
+.faq-body {
+    padding: 0 18px;
+    background-color: #F0DED0;;
+    /* display: none; */
+    overflow: hidden;
+}
+.faq-page:after {
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #59493b;
+    float: right;
+    margin-left: 5px;
+}
+.active:after {
+    content: "\2796";
+    /* Unicode character for "minus" sign (-) */
+}

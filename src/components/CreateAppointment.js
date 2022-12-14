@@ -6,6 +6,12 @@ import { useNavigate } from "react-router-dom";
 export default function CreateAppointment(props){
     const navigate = useNavigate();
 
+console.log(props)
+
+    const serviceList = props.services.map((eachService)=>{
+        return <option value ={eachService._id}>{eachService.serviceType}</option>
+    })
+console.log(serviceList);
 
     const [formState, setFormState] = useState({
         firstName: "",
@@ -15,7 +21,7 @@ export default function CreateAppointment(props){
         appointmentType: "",
         date: "",
         time: "",
-        appointmentDetails: "",
+
     
     })
 
@@ -32,7 +38,7 @@ export default function CreateAppointment(props){
             appointmentType: formState.appointmentType,
             date: formState.date,
             time: formState.time,
-            appointmentDetails: formState.appointmentDetails,
+
         
         })
         .then((response)=>{
@@ -48,39 +54,57 @@ export default function CreateAppointment(props){
     return(
         <div>
             <div>
+                <label className="form-label">
                 First Name:
-                <input type="text" value={formState.firstName} onChange={(e)=>{updateInput(e,"firstName")}} />
+                </label>
+                <input className="form-control" type="text" value={formState.firstName} onChange={(e)=>{updateInput(e,"firstName")}} />
             </div>
+
             <div>
+                <label className="form-label">
                 Last Name:
-                <input type="text" value={formState.lastName} onChange={(e)=>{updateInput(e,"lastName")}} />
+                </label>
+                <input className="form-control"  type="text" value={formState.lastName} onChange={(e)=>{updateInput(e,"lastName")}} />
             </div>
+
             <div>
+                <label className="form-label">
                 Email:
-                <input type="text" value={formState.email} onChange={(e)=>{updateInput(e,"email")}} />
+                </label>
+                <input className="form-control" type="text" value={formState.email} onChange={(e)=>{updateInput(e,"email")}} />
             </div>
+
             <div>
+            <label className="form-label">
                 Phone:
-                <input type="text" value={formState.phone} onChange={(e)=>{updateInput(e,"phone")}} />
+                </label>
+                <input className="form-control" type="text" value={formState.phone} onChange={(e)=>{updateInput(e,"phone")}} />
             </div>
+
             <div>
+            <label className="form-label">
                 Appointment Type:
-                <input type="text" value={formState.appointmentType} onChange={(e)=>{updateInput(e,"appointmentType")}} />
+                </label>
+                <select className="form-control" value={formState.appointmentType} onChange={(e)=>{updateInput(e,"appointmentType")}} >
+                {serviceList}
+                </select>
             </div>
+
             <div>
+            <label className="form-label">
                 Appointment Date:
-                <input type="date" value={formState.date} onChange={(e)=>{updateInput(e,"date")}} />
+                </label>
+                <input className="form-control" type="date" value={formState.date} onChange={(e)=>{updateInput(e,"date")}} />
             </div>
+
             <div>
+            <label className="form-label">
                 Appointment Time:
-                <input type="text" value={formState.time} onChange={(e)=>{updateInput(e,"time")}} />
+                </label>
+                <input className="form-control" type="text" value={formState.time} onChange={(e)=>{updateInput(e,"time")}} />
             </div>
-            <div>
-                Appointment Details:
-                <input type="text" value={formState.appointmentDetails} onChange={(e)=>{updateInput(e,"appointmentDetails")}} />
-            </div>
-          
-            <button onClick={submitForm}>submit</button>
+          <br></br>
+            <center><button className="beforeAfterBtn" onClick={submitForm}>submit</button></center>
         </div>
     )
 

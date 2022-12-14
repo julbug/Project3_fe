@@ -21,6 +21,7 @@ export default function CreateService(props){
     }
 
     const submitForm = () =>{
+        console.log(formState)
         axios.post("http://localhost:4200/services/create", {
             // image: formState.image,
             serviceType: formState.serviceType,
@@ -46,23 +47,43 @@ export default function CreateService(props){
                 <input type="text" value={formState.image} onChange={(e)=>{updateInput(e,"image")}} />
             </div> */}
             <div>
+
+                <label className="form-label">
                 Service:
-                <input type="text" value={formState.serviceType} onChange={(e)=>{updateInput(e,"serviceType")}} />
+                </label>
+
+                <input className="form-control"  type="text" value={formState.serviceType} onChange={(e)=>{updateInput(e,"serviceType")}} />
             </div>
+
             <div>
+
+                <label className="form-label">
                 Details:
-                <input type="text" value={formState.additionalInfo} onChange={(e)=>{updateInput(e,"additionalInfo")}} />
+                </label>
+
+                <input className="form-control" type="text" value={formState.additionalInfo} onChange={(e)=>{updateInput(e,"additionalInfo")}} />
             </div>
+
+
             <div>
+
+                <label className="form-label">
                 Duration:
-                <input type="text" value={formState.time} onChange={(e)=>{updateInput(e,"time")}} />
+                </label>
+
+                <input className="form-control"  type="text" value={formState.time} onChange={(e)=>{updateInput(e,"time")}} />
             </div>
+
             <div>
+                <label className="form-label">
                 Price:
-                <input type="text" value={formState.price} onChange={(e)=>{updateInput(e,"price")}} />
+                </label>
+
+                <input className="form-control" type="text" value={formState.price} onChange={(e)=>{updateInput(e,"price")}} />
             </div>
+            <br></br>
           
-            <button onClick={submitForm}>submit</button>
+            <center><button className="beforeAfterBtn" onClick={submitForm}>Submit</button></center>
         </div>
     )
 

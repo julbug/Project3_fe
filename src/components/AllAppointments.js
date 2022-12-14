@@ -4,34 +4,33 @@ import axios from 'axios';
 import {useState, useEffect} from 'react';
 
 
-export default function AllAppointments({theAppointments}) {
+export default function AllAppointments() {
 
-    // const [appointments, setAppointments] = useState([]);
+    const [appointments, setAppointments] = useState([]);
 
-    // const fetchAppointments = ()=>{
-    //     axios.get("http://localhost:4200/appointments")
-    //     .then((response)=>{
-    //         console.log(response);
-    //         setAppointments(response.data);
-    //     })
-    //     .catch((err)=>{
-    //         console.log(err);
-    //     })
-    // }
-
-
-    // useEffect(()=>{
-    //     fetchAppointments();
-    // }, [])
+    const fetchAppointments = ()=>{
+        axios.get("http://localhost:4200/appointments/")
+        .then((response)=>{
+            console.log(response.data);
+            setAppointments(response.data);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
 
 
-    const listOfAppointments = theAppointments.map((eachAppointment)=>{
+    useEffect(()=>{
+        fetchAppointments();
+    }, [])
+
+
+    const listOfAppointments = appointments.map((eachAppointment)=>{
 
         return(<div key={eachAppointment._id} className="appointment-list-item">
-            <Link to={"/services/"+eachAppointment._id}>
-            <h3>{eachAppointment.name}</h3>
+            <Link to={"/appointments/"+eachAppointment._id}>
+            <h3>{eachAppointment.firstName}</h3>
             </Link>
-            {/* <button onClick={()=>{DeleteService(eachService._id)}}>Delete This Service</button> */}
             </div>)
           
 
@@ -39,10 +38,17 @@ export default function AllAppointments({theAppointments}) {
 
 
 return(
-    <div className="list-services-container">
+    <div className="list-appointment-container">
     <h2>Appointments</h2>
-       {listOfAppointments}
-       <p><Link to="/appointments/create">Add Appointment</Link></p>
+
+    <h5 className='profile'>
+       {listOfAppointments}</h5>
+
+       <center>
+       <button className="beforeAfterBtn" >
+       <Link className = "text-link" to="/appointments/create">Book an Appointment</Link>
+       </button>
+       </center>
     </div>
 );
 }
