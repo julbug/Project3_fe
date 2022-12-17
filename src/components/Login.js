@@ -23,7 +23,7 @@ export default function SignupOrLogin({ action }) {
 console.log(endpoint)
 		axios
 			.post(
-				"http://localhost:4200/auth/" + endpoint,
+				"https://archdeco.onrender.com/auth/" + endpoint,
 				{
 					username: formState.username,
 					email: formState.email,

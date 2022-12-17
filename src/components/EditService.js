@@ -22,7 +22,7 @@ export default function EditService({service, stopEditing, fetchServices}){
 
 
     const submitForm = () =>{
-        axios.post("http://localhost:4200/services/edit/"+service._id, {
+        axios.post("https://archdeco.onrender.com/services/edit/"+service._id, {
             serviceType: formState.serviceType,
             additionalInfo: formState.additionalInfo,
             time: formState.time,

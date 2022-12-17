@@ -8,7 +8,7 @@ export const UserProvider = ({ children }) => {
 
 	const getUserInfo = () => {
 		axios
-			.get("http://localhost:4200/auth/serializeuser", {
+			.get("https://archdeco.onrender.com/auth/serializeuser", {
 				withCredentials: true,
 			})
 			.then((response) => {
@@ -27,7 +27,7 @@ export const UserProvider = ({ children }) => {
 
 	const logout = () => {
 		axios
-			.post("http://localhost:4200/auth/logout", {}, { withCredentials: true })
+			.post("https://archdeco.onrender.com/auth/logout", {}, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				if (response.data.message === "successfully logged out")

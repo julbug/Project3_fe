@@ -12,7 +12,7 @@ export default function AllAppointments() {
     const [appointments, setAppointments] = useState([]);
 
     const fetchAppointments = ()=>{
-        axios.get("http://localhost:4200/appointments/")
+        axios.get("https://archdeco.onrender.com/appointments/")
         .then((response)=>{
             console.log(response.data);
             setAppointments(response.data);

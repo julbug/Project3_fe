@@ -37,7 +37,7 @@ export default function CreateService(props){
         newServiceObj.append("price", formState.price)
         newServiceObj.append("image", formState.image)
       
-        axios.post("http://localhost:4200/services/create", newServiceObj)
+        axios.post("https://archdeco.onrender.com/services/create", newServiceObj)
         .then((response)=>{
             console.log(response);
             props.fetchServices();

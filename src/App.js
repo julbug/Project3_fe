@@ -29,7 +29,7 @@ function App(props) {
   const [appointments, setAppointments] = useState([]);
 
   const fetchAppointments = ()=>{
-      axios.get("http://localhost:4200/appointments/")
+      axios.get("https://archdeco.onrender.com/appointments/")
       .then((response)=>{
           console.log(response.data);
           setAppointments(response.data);
@@ -47,7 +47,7 @@ function App(props) {
   const [services, setServices] = useState([]);
 
   const fetchServices = ()=>{
-      axios.get("http://localhost:4200/services/")
+      axios.get("https://archdeco.onrender.com/services/")
       .then((response)=>{
           console.log(response.data);
           setServices(response.data);

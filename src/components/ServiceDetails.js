@@ -28,7 +28,7 @@ console.log(theUser)
     
    //FETCH SERVICE DATA
     const fetchServiceDetails = ()=>{
-        axios.get("http://localhost:4200/services/"+id)
+        axios.get("https://archdeco.onrender.com/services/"+id)
         .then((response)=>{
             console.log(response.data);
             setTheService(response.data);
@@ -48,7 +48,7 @@ console.log(theUser)
     const deleteService = (theID) => {
 		console.log(theID);
 		axios
-			.post("http://localhost:4200/services/delete", { id: theID })
+			.post("https://archdeco.onrender.com/services/delete", { id: theID })
 			.then((response) => {
 				console.log(response);
 				fetchServices();
