@@ -1,10 +1,13 @@
 import React from 'react'
 import {Link} from "react-router-dom";
 import axios from 'axios';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
+import UserContext from "../contexts/UserContext";
 
 
 export default function AllAppointments() {
+
+    const { theUser } = useContext(UserContext)
 
     const [appointments, setAppointments] = useState([]);
 
@@ -36,19 +39,18 @@ export default function AllAppointments() {
 
     })
 
-
 return(
     <div className="list-appointment-container">
-    <h2>Appointments</h2>
-
-    <h5 className='profile'>
-       {listOfAppointments}</h5>
-
-       <center>
-       <button className="beforeAfterBtn" >
+    <br></br>
+    <h2>Book Your Appointment Now!</h2>
+    {theUser ? (
+    <h5>{listOfAppointments}</h5>
+    ) : null}
+       <center><button className="beforeAfterBtn" >
        <Link className = "text-link" to="/appointments/create">Book an Appointment</Link>
-       </button>
-       </center>
+       </button></center>
+       <br></br>
+       <p>PLEASE READ OUR <Link to ="/FAQ">TERMS AND CONDITIONS</Link> PRIOR TO BOOKING </p>
     </div>
 );
 }

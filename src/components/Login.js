@@ -6,6 +6,7 @@ import UserContext from "../contexts/UserContext";
 export default function SignupOrLogin({ action }) {
 	const [formState, setFormState] = useState({
 		username: "",
+		email: "",
 		password: "",
 	});
 
@@ -19,18 +20,24 @@ export default function SignupOrLogin({ action }) {
 		let endpoint;
 		if (action === "signup") endpoint = "signup";
 		if (action === "login") endpoint = "login";
-
+console.log(endpoint)
 		axios
 			.post(
 				"http://localhost:4200/auth/" + endpoint,
 				{
 					username: formState.username,
+					email: formState.email,
 					password: formState.password,
 				},
 				{ withCredentials: true }
 			)
 			.then((response) => {
 				getUserInfo();
+				setFormState({
+					username: "",
+					email: "",
+					password: "",
+				})
 			})
 			.catch((err) => {
 				console.log(err);
@@ -57,6 +64,20 @@ export default function SignupOrLogin({ action }) {
 
 			<div>
                 <label className="form-label">
+                Email:
+                </label>
+				
+				<input className="form-control"
+					type="text"
+					value={formState.email}
+					onChange={(e) => {
+						updateInput(e, "email");
+					}}
+				/>
+			</div>
+
+			<div>
+                <label className="form-label">
                 Password:
                 </label>
 
@@ -76,3 +97,4 @@ export default function SignupOrLogin({ action }) {
 		</div>
 	);
 }
+

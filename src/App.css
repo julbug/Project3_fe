@@ -3,9 +3,10 @@
   font-family: 'Alegreya';
 }
 
-h2, li, button, h3, label, h4, h1, p, a{
+h2, li, ul, button, h3, label, h4, h1, p, a, h5{
   font-family: 'Alegreya';
   color: #59493b;
+  text-decoration: none;
 }
 
 /*ARCHDECO TITLE*/
@@ -179,10 +180,10 @@ h2, li, button, h3, label, h4, h1, p, a{
   }
 
 /*FAQ*/
-  .faq-heading{
+.faq-heading{
     border-bottom:  #59493b;
     padding: 20px 60px;
-}
+} 
 .faq-container{
 display: flex;
 justify-content: center;
@@ -193,9 +194,10 @@ flex-direction: column;
   margin: auto;
   
 }
+
+
 /* Style the buttons that are used to open and close the faq-page body */
-.faq-page {
-    /* background-color: #eee; */
+.faq-page { 
     color: #59493b;
     cursor: pointer;
     padding: 30px 20px;
@@ -204,35 +206,90 @@ flex-direction: column;
     outline: none;
     transition: 0.4s;
     margin: auto;
-}
-.faq-body{
-    margin: auto;
-    /* text-align: center; */
+} 
+.faq-body{ 
+    margin: auto; 
+    text-align: center;
    width: 50%; 
    padding: auto;
    
-}
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+} 
+
 .active,
 .faq-page:hover {
-    background-color: #F0DED0;;
-}
-/* Style the faq-page panel. Note: hidden by default */
+    background-color: #F0DED0;
+} 
+
 .faq-body {
     padding: 0 18px;
-    background-color: #F0DED0;;
-    /* display: none; */
-    overflow: hidden;
+    background-color: #F0DED0;
+     overflow: hidden;
 }
 .faq-page:after {
-    content: '\02795';
-    /* Unicode character for "plus" sign (+) */
     font-size: 13px;
     color: #59493b;
     float: right;
     margin-left: 5px;
+} 
+
+.instagramlogo{
+  width: 100px;
 }
-.active:after {
-    content: "\2796";
-    /* Unicode character for "minus" sign (-) */
+
+.appointment-list-component{
+margin-top: 90px;
+}
+
+div {
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+.serviceDetsCont{
+  display: grid;
+  padding: 2rem;
+  grid-template-columns: 300px 1fr;
+  gap: 1rem;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  font: 500 100%/1.5 system-ui;
+}
+
+.imgDets{
+  max-height: 100%;
+  max-width: 99%;
+  /* max-width: 126%; */
+  margin-left: 139px;
+
+  border-radius: 5px;
+}
+
+.verticalLine {
+  position: absolute;
+  background-color: #59493b;
+  width: 6px;
+  top: 104px;
+  bottom: 107px;
+  left: 50%;
+}
+
+.CrtApt{
+  width: 50%;
+  margin-left: 290px;
+  margin-top: 20px;
+}
+
+
+a:link{
+  text-decoration: none;
 }

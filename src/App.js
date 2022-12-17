@@ -14,7 +14,6 @@ import Home from "./components/Home"
 import Contact from "./components/Contact";
 
 import About from "./pages/About";
-// import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Gallery from "./pages/Gallery";
 
@@ -62,6 +61,14 @@ function App(props) {
   useEffect(()=>{
     fetchServices();
   }, [])
+
+
+  useEffect(() => {
+    if (document) {
+      const stylesheet = document.createElement("link");
+      document.head.appendChild(stylesheet);
+    }
+  }, []);
  
   
   
@@ -101,8 +108,8 @@ function App(props) {
             
             <Route path="/FAQ" element = {<FAQ />} />
               
-        
       </Routes>
+
       </UserProvider>
       
       

@@ -4,7 +4,7 @@ import {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 
 export default function EditService({service, stopEditing, fetchServices}){
-    console.log(service)
+    // console.log(service)
 
     const navigate = useNavigate();
     
@@ -14,6 +14,7 @@ export default function EditService({service, stopEditing, fetchServices}){
 
 
     const [formState, setFormState] = useState(service);
+    console.log(formState)
 
     const updateInput = (e, thingToUpdate)=>{
         setFormState({...formState, [thingToUpdate]: e.target.value})

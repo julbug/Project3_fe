@@ -6,6 +6,7 @@ import EditAppointment from "./EditAppointment";
 import { Link } from "react-router-dom";
 
 
+
 export default function AppointmentDetails({fetchAppointments, theUser}){
     const {id} = useParams();
 //EDIT
@@ -54,7 +55,7 @@ export default function AppointmentDetails({fetchAppointments, theUser}){
 	};
 
 
-    console.log(theAppointment);
+    // console.log(theAppointment);
 
     if(!theAppointment){
         return ""
@@ -74,7 +75,7 @@ export default function AppointmentDetails({fetchAppointments, theUser}){
                 <p>{theAppointment.email}</p>
                 <p>{theAppointment.phone}</p>
                 <p>{theAppointment.appointmentType}</p>
-                <p>{theAppointment.date}</p>
+                <p>{new Date(theAppointment.date).toLocaleDateString()}</p>
                 <p>{theAppointment.time}</p>
 
             </div>}

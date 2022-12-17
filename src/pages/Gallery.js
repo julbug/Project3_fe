@@ -44,11 +44,11 @@ this.setState({
   render() {
     return (
       <div>
-        <h2>Before and After</h2>
+      <br></br>
 <center>
-<div class="frame">
-  <div class="mat">
-    <div class="art">
+<div className="frame">
+  <div className="mat">
+    <div className="art">
         <img src={this.state.picList[this.state.index]}/> 
         </div>
   </div>

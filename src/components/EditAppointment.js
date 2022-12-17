@@ -4,7 +4,7 @@ import {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 
 export default function EditAppointment({appointment, stopEditing, fetchAppointments}){
-    console.log(appointment)
+    // console.log(appointment)
 
     const navigate = useNavigate();
 

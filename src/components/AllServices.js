@@ -1,10 +1,13 @@
 import React from 'react'
 import {Link} from "react-router-dom";
 import axios from 'axios';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
+import UserContext from "../contexts/UserContext";
 
 
 export default function AllServices() {
+
+    const { theUser } = useContext(UserContext)
 
     const [services, setServices] = useState([]);
 
@@ -27,24 +30,25 @@ export default function AllServices() {
     console.log(services)
     const listOfServices = services.map((eachService)=>{
 
-        return(<div key={eachService._id} className="service-list-item">
+        return(<div key={eachService._id} className="faq-page">
             <Link to={"/services/"+eachService._id}>
-            <h3>{eachService.serviceType}</h3>
+            <h4>{eachService.serviceType}</h4>
             </Link>
-            {/* <button onClick={()=>{DeleteService(eachService._id)}}>Delete This Service</button> */}
             </div>)
-          
 
     })
 
-
-return(
-    <div className="list-services-container">
-    <h2>Services</h2>
-       <h5 className='profile'>{listOfServices}</h5>
-       <center><button className="beforeAfterBtn" >
-       <Link className = "text-link" to="/services/create">Add Service</Link></button></center>
-    </div>
+    
+    return (
+        <div className="list-services-container">
+            <br></br>
+            <h2 className= "title">Services</h2>
+            <h5>{listOfServices}</h5>
+            {theUser ? (
+                <center><button className="beforeAfterBtn" >
+                    <Link className = "text-link" to="/services/create">Add Service</Link></button></center>
+            ) : null}
+        </div>
     );
 }
 

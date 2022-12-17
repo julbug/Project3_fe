@@ -2,9 +2,11 @@ import React from 'react';
 import { Link, Route, Routes } from "react-router-dom";
 import "../App.css";
 import "../navbar.css"
-import Contact from './Contact';
+import UserContext from "../contexts/UserContext";
+import {useState, useEffect, useContext} from "react";
 
 const NavBar = () => {
+  const { theUser, logout } = useContext(UserContext)
   return (
     <div className="navbar">
     <nav>
@@ -24,7 +26,8 @@ const NavBar = () => {
 
         <li><Link to ="/about">About</Link></li>
 
-        <li><Link to ="/login">Login</Link></li>
+        {!theUser && <li><Link to ="/login">Login</Link></li>}
+        {theUser && <li onClick={()=>{logout()}}><Link>Log Out</Link></li>}
 
       </ul>
       </div>

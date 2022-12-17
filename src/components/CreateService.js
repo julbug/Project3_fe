@@ -8,7 +8,7 @@ export default function CreateService(props){
 
 
     const [formState, setFormState] = useState({
-        // image: "",
+        image: "",
         serviceType: "",
         additionalInfo: "",
         time: "",
@@ -17,19 +17,27 @@ export default function CreateService(props){
     })
 
     const updateInput = (e, thingToUpdate)=>{
+        console.log(e.target.value)
         setFormState({...formState, [thingToUpdate]: e.target.value})
+        console.log(formState)
+    }
+
+    const updateFileInput = (e)=>{
+        console.log(e.target.value)
+        setFormState({...formState, image: e.target.files[0]})
+        
     }
 
     const submitForm = () =>{
         console.log(formState)
-        axios.post("http://localhost:4200/services/create", {
-            // image: formState.image,
-            serviceType: formState.serviceType,
-            additionalInfo: formState.additionalInfo,
-            time: formState.time,
-            price: formState.price,
-        
-        })
+        const newServiceObj = new FormData()
+        newServiceObj.append("serviceType", formState.serviceType)
+        newServiceObj.append("additionalInfo", formState.additionalInfo)
+        newServiceObj.append("time", formState.time)
+        newServiceObj.append("price", formState.price)
+        newServiceObj.append("image", formState.image)
+      
+        axios.post("http://localhost:4200/services/create", newServiceObj)
         .then((response)=>{
             console.log(response);
             props.fetchServices();
@@ -40,12 +48,19 @@ export default function CreateService(props){
         })
     }
 
+    console.log(formState)
+
     return(
         <div>
-            {/* <div>
+            <div>
+
+                <label className="form-label">
                 Image:
-                <input type="text" value={formState.image} onChange={(e)=>{updateInput(e,"image")}} />
-            </div> */}
+                </label>
+
+                <input type="file"  name="image" accept="image/png, image/gif, image/jpeg" onChange={(e)=>{updateFileInput(e)}} />
+            </div>
+
             <div>
 
                 <label className="form-label">
@@ -54,16 +69,6 @@ export default function CreateService(props){
 
                 <input className="form-control"  type="text" value={formState.serviceType} onChange={(e)=>{updateInput(e,"serviceType")}} />
             </div>
-
-            <div>
-
-                <label className="form-label">
-                Details:
-                </label>
-
-                <input className="form-control" type="text" value={formState.additionalInfo} onChange={(e)=>{updateInput(e,"additionalInfo")}} />
-            </div>
-
 
             <div>
 
@@ -82,6 +87,15 @@ export default function CreateService(props){
                 <input className="form-control" type="text" value={formState.price} onChange={(e)=>{updateInput(e,"price")}} />
             </div>
             <br></br>
+
+            <div>
+
+                <label className="form-label">
+                Details:
+                </label>
+
+                <input className="form-control" type="text" value={formState.additionalInfo} onChange={(e)=>{updateInput(e,"additionalInfo")}} />
+            </div>
           
             <center><button className="beforeAfterBtn" onClick={submitForm}>Submit</button></center>
         </div>
