@@ -12,9 +12,10 @@ export const UserProvider = ({ children }) => {
 				withCredentials: true,
 			})
 			.then((response) => {
-				setTheUser(response.data);
-				console.log(theUser)
 				console.log(response)
+				setTheUser(response.data);
+				// console.log(theUser)
+				// console.log(response)
 			})
 			.catch((err) => {
 				console.log(err);
